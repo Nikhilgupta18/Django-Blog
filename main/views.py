@@ -47,7 +47,9 @@ def author(request, pk):
 
 def create_article(request):
     authors = models.Author.objects.all()
-    context = {}
+    context = {
+        "authors": authors
+    }
     if request.method == "POST":
         article_data={
             "title": request.POST['title'],
