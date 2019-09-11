@@ -1,9 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-
-    <h1>Name: {{ author.name }}</h1>
-
+<div class="container jumbotron ">
+    
+    <h1 class="display-4">Name: {{ author.name }}</h1>
+    <hr class="my-4">
+    
     <h3>Articles written: </h3>
     <ul>
         {% for article in author.article_set.all %}
@@ -12,8 +14,9 @@
                     {{ article }}
                 </a>
             </li>
-        {% endfor %}
+            {% endfor %}
     </ul>
-
-
+    
+    
+</div>
 {% endblock %}

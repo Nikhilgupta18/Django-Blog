@@ -2,19 +2,23 @@
 
 {% block content %}
 
-    <h2>{{ article.title }}</h2>
-    <h3>Created At: {{ article.createdAt }}</h3>
-    <h3>Author(s):          
-        {% for author in article.authors.all %}
-            <a href="{% url 'get_author' author.id %}">
-                    {{ author }},
+    <div class="container jumbotron ">
+
+        <h2 class="display-4">{{ article.title }}</h2>
+        <h3 class="lead">Created At: {{ article.createdAt }}</h3>
+        <h3 class="lead">Author(s):          
+            {% for author in article.authors.all %}
+            <a href="{% url 'get_author' author.id %}" class="lead">
+                {{ author }},
             </a>
-        {% endfor %}
-    </h3>
-
-    
-    <p>
-        {{ article.content }}
-    </p>
-
+            {% endfor %}
+        </h3>
+        
+        <hr class="my-4">
+        
+        <p>
+            {{ article.content }}
+        </p>
+        
+    </div>
 {% endblock %}
