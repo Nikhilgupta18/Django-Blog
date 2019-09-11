@@ -6,11 +6,23 @@
     {% if success %}
         Form submitted Successfully
     {% endif %}
-
+    
     <form method="post">
-        {% csrf_token %}
-        <input type="text" name="title" placeholder="Title">
-        <textarea name="content" placeholder="Content"></textarea>
+            {% csrf_token %}
+            <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <label for="Title">Title</label>
+                          <input type="text" name="title" placeholder="Title">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="Author">Author</label>
+                        <input type="text" name="author" placeholder="author">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="Content">Content</label>
+                      <textarea name="content" placeholder="Content"></textarea>
+                    </div>
         <select name="author" placeholder="Author" >
             {% for author in authors %}
             <option value="{{ author.id }}">{{ author.name }}</option>

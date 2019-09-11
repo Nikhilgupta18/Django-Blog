@@ -14,6 +14,15 @@ def index(request):
 
 
 
+def allArticles(request):
+    articles = models.Article.objects.all()
+    
+    context = {
+        "articles": articles
+    }
+    return render(request,'main/all_articles.html',context)
+
+
 def article(request, pk):
     article = get_object_or_404(models.Article, pk=pk )
 
@@ -38,13 +47,12 @@ def author(request, pk):
 
 def create_article(request):
     authors = models.Author.objects.all()
-    context = {
-        "authors": authors
-    }
+    context = {}
     if request.method == "POST":
         article_data={
             "title": request.POST['title'],
-            "content": request.POST['content']
+            "content": request.POST['content'],
+            # "author": request.POST['author']
         }
 
         article= models.Article.objects.create(**article_data)
